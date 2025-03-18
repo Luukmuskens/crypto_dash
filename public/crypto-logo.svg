@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Buitenste cirkel met blauwe omtrek -->
+  <circle cx="20" cy="20" r="19" stroke="#66B2FF" stroke-width="2"/>
+  
+  <!-- Hoofd vorm -->
+  <path d="M20 8C13.3726 8 8 13.3726 8 20C8 26.6274 13.3726 32 20 32C26.6274 32 32 26.6274 32 20C32 13.3726 26.6274 8 20 8Z" fill="#FF6B00"/>
+  
+  <!-- Tech-geïnspireerde manen -->
+  <path d="M12 14C12 14 14 16 20 16C26 16 28 14 28 14" stroke="#FF8533" stroke-width="2" stroke-linecap="round"/>
+  <path d="M12 22C12 22 14 24 20 24C26 24 28 22 28 22" stroke="#FF8533" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Gezichtsstructuur -->
+  <path d="M20 12C16.6863 12 14 14.6863 14 18C14 21.3137 16.6863 24 20 24C23.3137 24 26 21.3137 26 18C26 14.6863 23.3137 12 20 12Z" fill="#FF8533"/>
+  
+  <!-- Tech-geïnspireerde ogen -->
+  <path d="M16 16C16 16 17 17 20 17C23 17 24 16 24 16" stroke="#66B2FF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M16 20C16 20 17 21 20 21C23 21 24 20 24 20" stroke="#66B2FF" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Circuit board patronen -->
+  <path d="M15 15L17 15" stroke="#66B2FF" stroke-width="1" stroke-linecap="round"/>
+  <path d="M23 15L25 15" stroke="#66B2FF" stroke-width="1" stroke-linecap="round"/>
+  <path d="M15 21L17 21" stroke="#66B2FF" stroke-width="1" stroke-linecap="round"/>
+  <path d="M23 21L25 21" stroke="#66B2FF" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Tech-geïnspireerde neus -->
+  <path d="M20 16C18.8954 16 18 16.8954 18 18C18 19.1046 18.8954 20 20 20C21.1046 20 22 19.1046 22 18C22 16.8954 21.1046 16 20 16Z" fill="#66B2FF"/>
+  
+  <!-- Circuit board dots -->
+  <circle cx="17" cy="15" r="1" fill="#66B2FF"/>
+  <circle cx="23" cy="15" r="1" fill="#66B2FF"/>
+  <circle cx="17" cy="21" r="1" fill="#66B2FF"/>
+  <circle cx="23" cy="21" r="1" fill="#66B2FF"/>
+</svg> 
