@@ -157,7 +157,7 @@ const CryptoDashboard = () => {
           <Button
             variant="outline"
             size="icon"
-            onClick={() => (window.location.href = "/.")}
+            onClick={() => (window.location.href = "/HomePage.jsx")}
             className="hover:bg-primary hover:text-primary-foreground"
           >
             <Home className="h-5 w-5" />
