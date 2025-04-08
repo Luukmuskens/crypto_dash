@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Card, CardContent } from "../components/ui/card";
+
 import {
   LineChart,
   Line,
@@ -204,6 +205,14 @@ const CryptoDashboard = () => {
               Vernieuwen
             </>
           )}
+        </Button>
+      </div>
+      <div className="flex gap-2">
+        <Button
+          onClick={() => (window.location.href = "/Wallet.jsx")}
+          className="bg-purple-500 hover:bg-purple-600 text-white"
+        >
+          Ga naar Wallet
         </Button>
       </div>
 
@@ -435,4 +444,3 @@ const CryptoDashboard = () => {
 };
 
 export default CryptoDashboard;
-
