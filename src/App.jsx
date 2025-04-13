@@ -1,18 +1,21 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CryptoDashboard from "./pages/CryptoDashboard";
-import { Toaster } from "./components/ui/toaster";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Wallet from "./components/ui/wallet";
+import CryptoDetails from "./pages/CryptoDetails";
+import HomePage from "./pages/HomePage";
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<CryptoDashboard />} />
-        <Route path="/wallet" element={<Wallet />} />
+        <Route path="/crypto-details/:id" element={<CryptoDetails />} />
+        <Route path="/dashboard" element={<CryptoDashboard />} />
+        <Route path="/crypto/:id" element={<CryptoDetails />} />
+        <Route path="/homepage" element={<HomePage />} />
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;

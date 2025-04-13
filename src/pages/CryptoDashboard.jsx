@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Card, CardContent } from "../components/ui/card";
-
 import {
   LineChart,
   Line,
@@ -11,14 +10,13 @@ import {
   PieChart,
   Pie,
   Cell,
-  Legend,
 } from "recharts";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Moon, Sun, Home, RefreshCw } from "lucide-react";
 import axios from "axios";
 import { useToast } from "../components/ui/use-toast";
-
+import { Link } from "react-router-dom";
 const COLORS = [
   "#FF8C00", // Oranje
   "#1E3A8A", // Donkerblauw
@@ -34,6 +32,15 @@ const COLORS = [
 
 const CryptoDashboard = () => {
   const [coins, setCoins] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+
+  const toggleFavorite = (coin) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.some((fav) => fav.id === coin.id)
+        ? prevFavorites.filter((fav) => fav.id !== coin.id)
+        : [...prevFavorites, coin]
+    );
+  };
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState("light");
@@ -158,11 +165,13 @@ const CryptoDashboard = () => {
           <Button
             variant="outline"
             size="icon"
-            onClick={() => (window.location.href = "/HomePage.jsx")}
             className="hover:bg-primary hover:text-primary-foreground"
           >
-            <Home className="h-5 w-5" />
+            <Link to="/HomePage.jsx">
+              <Home className="h-5 w-5" />
+            </Link>
           </Button>
+
           <Button
             variant="outline"
             size="icon"
@@ -207,15 +216,6 @@ const CryptoDashboard = () => {
           )}
         </Button>
       </div>
-      <div className="flex gap-2">
-        <Button
-          onClick={() => (window.location.href = "/Wallet.jsx")}
-          className="bg-purple-500 hover:bg-purple-600 text-white"
-        >
-          Ga naar Wallet
-        </Button>
-      </div>
-
       {/* Market Share Section */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">
@@ -331,11 +331,25 @@ const CryptoDashboard = () => {
                 </div>
                 <div className="flex gap-2">
                   <Button
-                    className="flex-1 bg-green-500 hover:bg-green-600 text-white"
-                    onClick={() => handleBuy(coin)}
+                    className={`flex-1 ${
+                      favorites.some((fav) => fav.id === coin.id)
+                        ? "bg-yellow-500 hover:bg-yellow-600"
+                        : "bg-gray-300 hover:bg-gray-400"
+                    } text-white`}
+                    onClick={() => toggleFavorite(coin)}
                   >
-                    Koop
+                    {favorites.some((fav) => fav.id === coin.id)
+                      ? "Unfavorite"
+                      : "Favorite"}
                   </Button>
+                  <Link to={`/crypto-details/${coin.id}`} className="flex-1">
+                    <Button
+                      className="w-full bg-green-500 hover:bg-green-600 text-white"
+                      onClick={() => handleBuy(coin)}
+                    >
+                      Koop
+                    </Button>
+                  </Link>
                   <Button
                     className="flex-1 bg-red-500 hover:bg-red-600 text-white"
                     onClick={() => handleSell(coin)}
