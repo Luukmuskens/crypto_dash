@@ -167,7 +167,7 @@ const CryptoDashboard = () => {
             size="icon"
             className="hover:bg-primary hover:text-primary-foreground"
           >
-            <Link to="/HomePage.jsx">
+            <Link to="/HomePage">
               <Home className="h-5 w-5" />
             </Link>
           </Button>
