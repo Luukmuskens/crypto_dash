@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Button } from "../components/ui/button";
 
@@ -28,7 +28,7 @@ const CryptoDetail = () => {
   }, [id]);
 
   const handleAddToWallet = () => {
-    alert(`${coin.name} is toegevoegd aan je wallet!`);
+    alert(`${coin.name} heb je nu gekocht!`);
   };
 
   if (loading) {

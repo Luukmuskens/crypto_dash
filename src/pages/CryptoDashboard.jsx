@@ -44,7 +44,7 @@ const CryptoDashboard = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState("light");
-  const [username, setUsername] = useState("Meester");
+  const [username] = useState("Meester");
   const [error, setError] = useState(null);
   const { toast } = useToast();
 
@@ -216,7 +216,6 @@ const CryptoDashboard = () => {
           )}
         </Button>
       </div>
-      {/* Market Share Section */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Marktaandeel Top 10 Cryptocurrencies
@@ -345,14 +344,30 @@ const CryptoDashboard = () => {
                   <Link to={`/crypto-details/${coin.id}`} className="flex-1">
                     <Button
                       className="w-full bg-green-500 hover:bg-green-600 text-white"
-                      onClick={() => handleBuy(coin)}
+                      onClick={() => {
+                        handleBuy(coin);
+                        toast({
+                          title: "Koop Order",
+                          description: `Je hebt een koop order geplaatst voor ${
+                            coin.name
+                          } (${coin.symbol.toUpperCase()})`,
+                        });
+                      }}
                     >
                       Koop
                     </Button>
                   </Link>
                   <Button
                     className="flex-1 bg-red-500 hover:bg-red-600 text-white"
-                    onClick={() => handleSell(coin)}
+                    onClick={() => {
+                      handleSell(coin);
+                      toast({
+                        title: "Verkoop Order",
+                        description: `Je hebt een verkoop order geplaatst voor ${
+                          coin.name
+                        } (${coin.symbol.toUpperCase()})`,
+                      });
+                    }}
                   >
                     Verkoop
                   </Button>
