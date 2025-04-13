@@ -9,6 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<CryptoDashboard />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/crypto-details/:id" element={<CryptoDetails />} />
         <Route path="/dashboard" element={<CryptoDashboard />} />
         <Route path="/crypto/:id" element={<CryptoDetails />} />
