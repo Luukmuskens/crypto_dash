@@ -32,15 +32,7 @@ const COLORS = [
 
 const CryptoDashboard = () => {
   const [coins, setCoins] = useState([]);
-  const [favorites, setFavorites] = useState([]);
 
-  const toggleFavorite = (coin) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.some((fav) => fav.id === coin.id)
-        ? prevFavorites.filter((fav) => fav.id !== coin.id)
-        : [...prevFavorites, coin]
-    );
-  };
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState("light");
@@ -334,18 +326,6 @@ const CryptoDashboard = () => {
                   </ResponsiveContainer>
                 </div>
                 <div className="flex gap-2">
-                  <Button
-                    className={`flex-1 ${
-                      favorites.some((fav) => fav.id === coin.id)
-                        ? "bg-yellow-500 hover:bg-yellow-600"
-                        : "bg-gray-300 hover:bg-gray-400"
-                    } text-white`}
-                    onClick={() => toggleFavorite(coin)}
-                  >
-                    {favorites.some((fav) => fav.id === coin.id)
-                      ? "Unfavorite"
-                      : "Favorite"}
-                  </Button>
                   <Link to={`/crypto-details/${coin.id}`} className="flex-1">
                     <Button
                       className="w-full bg-green-500 hover:bg-green-600 text-white"
