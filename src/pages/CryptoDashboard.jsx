@@ -16,6 +16,7 @@ import { Button } from "../components/ui/button";
 import { Moon, Sun, Home, RefreshCw } from "lucide-react";
 import axios from "axios";
 import { useToast } from "../components/ui/use-toast";
+import {FavoriteCoins} from "../components/ui/FavoriteCoins";
 import { Link } from "react-router-dom";
 const COLORS = [
   "#FF8C00", // Oranje
@@ -142,6 +143,59 @@ const CryptoDashboard = () => {
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const FavoriteCoins = () => {
+    return (
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold mb-4">Favoriete Cryptocurrencies</h2>
+        {favorites.length === 0 ? (
+          <p className="text-muted-foreground">Je hebt nog geen favorieten toegevoegd.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {favorites.map((coin) => (
+              <Card key={coin.id} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <img src={coin.image} alt={coin.name} className="w-8 h-8" />
+                      <div>
+                        <h2 className="text-lg font-semibold">{coin.name}</h2>
+                        <p className="text-sm text-muted-foreground">
+                          {coin.symbol.toUpperCase()}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-bold">
+                        ${coin.current_price.toFixed(2)}
+                      </p>
+                      <p
+                        className={`text-sm ${
+                          coin.price_change_percentage_24h > 0
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                      >
+                        {coin.price_change_percentage_24h.toFixed(2)}%
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      className="flex-1 bg-red-500 hover:bg-red-600 text-white"
+                      onClick={() => toggleFavorite(coin)}
+                    >
+                      Verwijder Favoriet
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   const marketData = coins.map((coin) => ({
     name: coin.name,
