@@ -189,32 +189,38 @@ const CryptoDashboard = () => {
           </Button>
         </div>
       </div>
-
-      <div className="flex gap-2">
-        <Input
-          type="text"
-          placeholder="Zoek een crypto..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="max-w-sm"
-        />
-        <Button
-          onClick={() => fetchCoins()}
-          disabled={loading}
-          className="gap-2"
-        >
-          {loading ? (
-            <>
-              <RefreshCw className="h-4 w-4 animate-spin" />
-              Laden...
-            </>
-          ) : (
-            <>
-              <RefreshCw className="h-4 w-4" />
-              Vernieuwen
-            </>
-          )}
-        </Button>
+      <div>
+        <div className="text-center my-6">
+          <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+            <Link to="/favorites">Toon Favorieten</Link>
+          </Button>
+        </div>
+        <div className="flex gap-2">
+          <Input
+            type="text"
+            placeholder="Zoek een crypto..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="max-w-sm"
+          />
+          <Button
+            onClick={() => fetchCoins()}
+            disabled={loading}
+            className="gap-2"
+          >
+            {loading ? (
+              <>
+                <RefreshCw className="h-4 w-4 animate-spin" />
+                Laden...
+              </>
+            ) : (
+              <>
+                <RefreshCw className="h-4 w-4" />
+                Vernieuwen
+              </>
+            )}
+          </Button>
+        </div>
       </div>
       <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">
@@ -261,7 +267,6 @@ const CryptoDashboard = () => {
           )}
         </div>
       </div>
-
       {error ? (
         <div className="text-center py-8">
           <p className="text-red-500 mb-4">{error}</p>
@@ -377,7 +382,6 @@ const CryptoDashboard = () => {
           ))}
         </div>
       )}
-
       {/* Advertentie Sectie */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">
